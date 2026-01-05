@@ -5,7 +5,7 @@ A modern **Personal Portfolio / Resume Landing Page** built with **HTML5 & Boots
 ---
 
 ## 🚀 Live Demo
-🔗 https://your-username.github.io/dev-portfolio/
+🔗 https://jitendra-dhadavi.github.io/developer-portfolio/
 
 ---
 
