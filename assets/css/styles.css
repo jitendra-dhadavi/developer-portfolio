@@ -1,0 +1,214 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --dark-bg: #0f172a;
+  --dark-card: #1e293b;
+  --dark-text: #f8fafc;
+  --light-bg: #ffffff;
+  --light-card: #f8f9fa;
+  --light-text: #212529;
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  --bg-body: var(--dark-bg);
+  --bg-card: var(--dark-card);
+  --text-main: var(--dark-text);
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+}
+
+[data-theme="light"] {
+  --bg-body: var(--light-bg);
+  --bg-card: var(--light-card);
+  --text-main: var(--light-text);
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: "Inter", sans-serif; /* Adding Inter as requested/planned */
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+/* Typography & Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(
+    var(--bg-body),
+    0.95
+  ); /* rudimentary opacity handled via JS or separate var if needs precise hex conversion, sticking to simple solid for now or slight transparent if hardcoded */
+  backdrop-filter: blur(10px);
+  transition: background-color var(--transition-speed);
+}
+[data-theme="dark"] .navbar {
+  background-color: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid var(--border-color);
+}
+[data-theme="light"] .navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  color: var(--text-main) !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(67, 97, 238, 0.3);
+  object-fit: cover;
+}
+
+/* Cards */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  color: var(--text-main);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  border-left: 2px solid var(--border-color);
+  margin-left: 1rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 3px solid var(--bg-body);
+}
+
+/* Skills */
+.skill-badge {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  margin: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.skill-badge:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Testimonials */
+.testimonial-card-bg {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Contact */
+.form-control {
+  background-color: var(--bg-body);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.form-control:focus {
+  background-color: var(--bg-body);
+  border-color: var(--primary-color);
+  color: var(--text-main);
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Animations */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
